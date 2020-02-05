@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center_vertical|center_horizontal"
     tools:context=".MainActivity">
 
     <TextView
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         style="?android:attr/textAppearanceLarge"
         android:gravity="center"
-        android:text="Permission Status" />
+        android:text="@string/lbl_permission_status" />
 
     <TextView
         android:layout_width="match_parent"
@@ -20,11 +21,13 @@
         style="?android:attr/textAppearanceMedium"
         android:textColor="@color/red"
         android:gravity="center"
-        android:text="Granted" />
+        android:id="@+id/grant_status"
+        android:text="@string/opt_not_granted" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Grant Permission" />
+        android:id="@+id/grant_button"
+        android:text="@string/btn_grant_permission" />
 
 </LinearLayout>

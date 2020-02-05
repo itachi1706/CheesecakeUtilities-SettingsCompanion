@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Cheesecake Utilities Settings Companion</string>
+    <string name="lbl_permission_status">Permission Status</string>
+    <string name="opt_granted">Granted</string>
+    <string name="opt_not_granted">Not Granted</string>
+    <string name="btn_grant_permission">Grant Permission</string>
+    <string name="uninstall_app">Uninstall App</string>
 </resources>
