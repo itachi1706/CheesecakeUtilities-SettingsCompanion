@@ -17,12 +17,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        var versionCode: Long = 0
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         var version = "???"
-        var versionCode = 0.toLong()
         try {
             val pInfo: PackageInfo = packageManager.getPackageInfo(packageName, 0)
             version = pInfo.versionName

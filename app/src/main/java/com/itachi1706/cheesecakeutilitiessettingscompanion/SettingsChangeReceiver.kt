@@ -21,7 +21,7 @@ class SettingsChangeReceiver : BroadcastReceiver() {
             ACTION_CHECK -> {
                 val random = Random().nextLong()
                 Log.i(TAG, "Received check request, pinging back $random to app")
-                sendReplyBroadcast(true, "Ping Check: ID $random", context)
+                sendReplyBroadcast(true, "Ping Check: ID $random | ${MainActivity.versionCode}", context)
             }
             ACTION_CHANGE -> {
                 Log.i(TAG, "Received Settings Change Request")
