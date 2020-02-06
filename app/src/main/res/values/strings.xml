@@ -5,4 +5,5 @@
     <string name="opt_not_granted">Not Granted</string>
     <string name="btn_grant_permission">Grant Permission</string>
     <string name="uninstall_app">Uninstall App</string>
+    <string name="app_version">Version: %1$s (%2$d)</string>
 </resources>

@@ -1,6 +1,8 @@
 package com.itachi1706.cheesecakeutilitiessettingscompanion
 
 import android.content.Intent
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -12,11 +14,25 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        var version = "???"
+        var versionCode = 0.toLong()
+        try {
+            val pInfo: PackageInfo = packageManager.getPackageInfo(packageName, 0)
+            version = pInfo.versionName
+            @Suppress("DEPRECATION")
+            versionCode = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) pInfo.longVersionCode else pInfo.versionCode.toLong()
+        } catch (e: PackageManager.NameNotFoundException) {
+            e.printStackTrace()
+        }
+
+        app_version.text = getString(R.string.app_version, version, versionCode)
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
             AlertDialog.Builder(this).setTitle("App incompatible with this version")

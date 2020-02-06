@@ -30,4 +30,11 @@
         android:id="@+id/grant_button"
         android:text="@string/btn_grant_permission" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:id="@+id/app_version"
+        android:text="@string/app_version" />
+
 </LinearLayout>
