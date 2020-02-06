@@ -12,30 +12,17 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.itachi1706.cheesecakeutilitiessettingscompanion.CommomMethods.getVersion
+import com.itachi1706.cheesecakeutilitiessettingscompanion.CommomMethods.getVersionCode
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
 
-    companion object {
-        var versionCode: Long = 0
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        var version = "???"
-        try {
-            val pInfo: PackageInfo = packageManager.getPackageInfo(packageName, 0)
-            version = pInfo.versionName
-            @Suppress("DEPRECATION")
-            versionCode = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) pInfo.longVersionCode else pInfo.versionCode.toLong()
-        } catch (e: PackageManager.NameNotFoundException) {
-            e.printStackTrace()
-        }
-
-        app_version.text = getString(R.string.app_version, version, versionCode)
+        app_version.text = getString(R.string.app_version, getVersion(this), getVersionCode(this))
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
             AlertDialog.Builder(this).setTitle("App incompatible with this version")

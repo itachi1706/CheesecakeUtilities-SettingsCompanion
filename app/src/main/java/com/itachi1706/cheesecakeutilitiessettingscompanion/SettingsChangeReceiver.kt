@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Build
 import android.provider.Settings
 import android.util.Log
+import com.itachi1706.cheesecakeutilitiessettingscompanion.CommomMethods.getVersionCode
 import java.util.*
 
 class SettingsChangeReceiver : BroadcastReceiver() {
@@ -21,7 +22,7 @@ class SettingsChangeReceiver : BroadcastReceiver() {
             ACTION_CHECK -> {
                 val random = Random().nextLong()
                 Log.i(TAG, "Received check request, pinging back $random to app")
-                sendReplyBroadcast(true, "Ping Check: ID $random | ${MainActivity.versionCode}", context)
+                sendReplyBroadcast(true, "Ping Check: ID $random | ${getVersionCode(context)}", context)
             }
             ACTION_CHANGE -> {
                 Log.i(TAG, "Received Settings Change Request")
